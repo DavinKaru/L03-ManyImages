@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">W03(L)-ManyImages</string>
     <string name="slv">State Library of Victoria, slv.vic.gov.au</string>
+    <string name="imageDescription">Images from the State library of Victoria depicting the Glenferrie station, Swinburne college, and Hawthorn theatre</string>
+    <string name="station">Station</string>
+    <string name="college">College</string>
+    <string name="theatre">Theatre</string>
 </resources>

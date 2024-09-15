@@ -14,6 +14,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/imageDescription"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/source"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_background"
-            android:text="Station" />
+            android:text="@string/station" />
 
         <Button
             android:id="@+id/college"
@@ -58,14 +59,14 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_background"
             android:onClick="onClickCollege"
-            android:text="College" />
+            android:text="@string/college" />
 
         <Button
             android:id="@+id/theatre"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_background"
-            android:text="Theatre" />
+            android:text="@string/theatre" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
