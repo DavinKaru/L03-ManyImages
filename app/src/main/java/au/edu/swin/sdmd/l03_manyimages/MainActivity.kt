@@ -8,34 +8,48 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var image: ImageView
+    private lateinit var station: Button
+    private lateinit var college: Button
+    private lateinit var theatre: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val image = findViewById<ImageView>(R.id.imageView)
+        image = findViewById(R.id.imageView)
+        station = findViewById(R.id.station)
+        college = findViewById(R.id.college)
+        theatre = findViewById(R.id.theatre)
+        station.backgroundTintList = null
+        college.backgroundTintList = null
+        theatre.backgroundTintList = null
 
-        val station = findViewById<Button>(R.id.station)
         station.setOnClickListener {
             image.setImageDrawable(getDrawable(R.drawable.station))
+            updateButtonState(station)
         }
 
-        val onClickTheatre = View.OnClickListener {
+        college.setOnClickListener {
+            image.setImageDrawable(getDrawable(R.drawable.college))
+            updateButtonState(college)
+        }
+
+        theatre.setOnClickListener {
             image.setImageDrawable(getDrawable(R.drawable.theatre))
+            updateButtonState(theatre)
         }
-
-        var onClickTheatre2: (() -> Unit)? = {
-            image.setImageDrawable(getDrawable(R.drawable.theatre))
-        }
-
-        val theatre = findViewById<Button>(R.id.theatre)
-        theatre.setOnClickListener(onClickTheatre)
-        //theatre.setOnClickListener { onClickTheatre2?.invoke() }
-
     }
 
-    fun onClickCollege(v: View) {
-        val image = findViewById<ImageView>(R.id.imageView)
-        image.setImageDrawable(getDrawable(R.drawable.college))
+    private fun updateButtonState(selectedButton: Button) {
+        val buttons = listOf(station, college, theatre)
+        buttons.forEach { button ->
+            if (button == selectedButton) {
+                button.setBackgroundResource(R.drawable.button_background_selected)
+            } else {
+                button.setBackgroundResource(R.drawable.button_background)
+            }
+        }
     }
 }
